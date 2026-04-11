@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BBTI — Basketball Behavioral Type Indicator</title>
+  <meta name="description" content="A satirical MBTI-style personality test for basketball players. 30 questions, 6 dimensions, 20 types.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏀</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="shell">
+
+    <!-- Global top bar -->
+    <div class="topbar-global">
+      <button class="lang-btn" id="langToggle">中文</button>
+    </div>
+
+    <!-- ======================== INTRO SCREEN ======================== -->
+    <section id="intro" class="screen active">
+      <div class="card hero">
+        <div class="eyebrow" id="eyebrow">BBTI</div>
+        <h1 id="heroHeading">What's Your Basketball Personality?</h1>
+        <p class="sub" id="heroSub"></p>
+
+        <div class="stat-row">
+          <div class="stat-pill">
+            <div class="num" id="statQNum">30</div>
+            <div class="label" id="statQLabel">Questions</div>
+          </div>
+          <div class="stat-pill">
+            <div class="num" id="statTNum">20</div>
+            <div class="label" id="statTLabel">Personality Types</div>
+          </div>
+          <div class="stat-pill">
+            <div class="num" id="statDNum">6</div>
+            <div class="label" id="statDLabel">Dimensions</div>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <button class="btn-primary" id="startBtn">Start Quiz</button>
+        </div>
+      </div>
+
+      <div class="preview-section">
+        <h2 id="previewHeading">Some Personality Previews</h2>
+        <div class="preview-grid" id="previewGrid"></div>
+      </div>
+    </section>
+
+    <!-- ======================== QUIZ SCREEN ======================== -->
+    <section id="test" class="screen">
+      <div class="card test-wrap">
+        <div class="quiz-topbar">
+          <div class="progress"><span id="progressBar"></span></div>
+          <div class="progress-text" id="progressText">0 / 30</div>
+        </div>
+
+        <div class="question-list" id="questionList"></div>
+
+        <div class="actions-bottom">
+          <span class="hint" id="quizHint"></span>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <button class="btn-secondary" id="backIntroBtn">Back to Home</button>
+            <button class="btn-primary" id="submitBtn" disabled>Submit</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== RESULT SCREEN ======================== -->
+    <section id="result" class="screen">
+      <div class="card result-wrap">
+        <div class="result-layout">
+
+          <div class="type-box">
+            <div class="type-kicker" id="resultKicker">Your Primary Type</div>
+            <div class="type-name" id="resultTypeName"></div>
+            <div class="type-tagline" id="resultTagline"></div>
+            <div class="match-badge" id="matchBadge"></div>
+          </div>
+
+          <div class="analysis-box">
+            <h3 id="analysisHeading">Type Breakdown</h3>
+            <p id="resultDesc"></p>
+          </div>
+
+          <div class="dim-box">
+            <h3 id="dimHeading">6-Dimension Scores</h3>
+            <div class="dim-list" id="dimList"></div>
+          </div>
+
+          <div class="note-box">
+            <h3 id="noteHeading">Disclaimer</h3>
+            <p id="noteText"></p>
+          </div>
+
+          <div class="result-actions">
+            <button class="btn-secondary" id="toTopBtn">Back to Home</button>
+            <button class="btn-primary" id="restartBtn">Retake Quiz</button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
