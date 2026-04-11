@@ -1,7 +1,11 @@
 import {
   STRINGS, DIMENSIONS, DIM_ORDER, DIM_EXPLANATIONS,
-  QUESTIONS, TYPE_LIBRARY, TYPE_PATTERNS, FALLBACK_TYPE
+  QUESTIONS, TYPE_LIBRARY, TYPE_PATTERNS, FALLBACK_TYPE,
+  SURPRISE_TYPE
 } from './i18n.js';
+
+// Flip to false to disable the surprise screen entirely
+const SURPRISE_MODE = true;
 
 // ============================================================
 //  State
@@ -25,9 +29,10 @@ function types() { return TYPE_LIBRARY[state.lang]; }
 const $ = (sel) => document.querySelector(sel);
 
 const screens = {
-  intro:  $('#intro'),
-  test:   $('#test'),
-  result: $('#result'),
+  intro:    $('#intro'),
+  test:     $('#test'),
+  surprise: $('#surprise'),
+  result:   $('#result'),
 };
 
 const langToggle    = $('#langToggle');
@@ -36,6 +41,7 @@ const backIntroBtn  = $('#backIntroBtn');
 const submitBtn     = $('#submitBtn');
 const restartBtn    = $('#restartBtn');
 const toTopBtn      = $('#toTopBtn');
+const seeRealBtn    = $('#seeRealBtn');
 const questionList  = $('#questionList');
 const progressBar   = $('#progressBar');
 const progressText  = $('#progressText');
@@ -247,6 +253,21 @@ function computeResult() {
 }
 
 // ============================================================
+//  Render surprise screen
+// ============================================================
+
+function renderSurprise() {
+  const surprise = SURPRISE_TYPE[state.lang];
+  $('#surpriseKicker').textContent   = t('surprise_kicker');
+  $('#surpriseTypeName').textContent = surprise.name;
+  $('#surpriseTagline').textContent  = surprise.tagline;
+  $('#surpriseDesc').textContent     = surprise.desc;
+  $('#surpriseNote').textContent     = t('surprise_note');
+  seeRealBtn.textContent            = t('surprise_see_real');
+  showScreen('surprise');
+}
+
+// ============================================================
 //  Render results
 // ============================================================
 
@@ -303,6 +324,10 @@ function setLang(lang) {
     renderQuestions();
   }
 
+  if (screens.surprise.classList.contains('active')) {
+    renderSurprise();
+  }
+
   if (screens.result.classList.contains('active')) {
     renderResult();
   }
@@ -318,7 +343,10 @@ langToggle.addEventListener('click', () => {
 
 startBtn.addEventListener('click', () => startQuiz());
 backIntroBtn.addEventListener('click', () => showScreen('intro'));
-submitBtn.addEventListener('click', () => renderResult());
+submitBtn.addEventListener('click', () => {
+  if (SURPRISE_MODE) { renderSurprise(); } else { renderResult(); }
+});
+seeRealBtn.addEventListener('click', (e) => { e.preventDefault(); renderResult(); });
 restartBtn.addEventListener('click', () => startQuiz());
 toTopBtn.addEventListener('click', () => showScreen('intro'));
 

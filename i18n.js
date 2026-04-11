@@ -588,6 +588,22 @@ export const TYPE_PATTERNS = [
   { code: 'HUGG',  pattern: 'MLHLLM' },
 ];
 
+// Surprise Easter egg type (romantic override)
+export const SURPRISE_TYPE = {
+  en: {
+    code: 'LOVE',
+    name: 'The Heart Stealer',
+    tagline: 'Stole my heart — and never gave it back.',
+    desc: 'You walk onto the court and suddenly nobody else matters. Your smile is a full-court press that no defense can stop. Your laugh echoes louder than any buzzer. You don\'t just play the game — you ARE the game. Every room you enter gets brighter. Every joke you tell lands perfectly. You have this ridiculous ability to make even the worst day feel like a championship win. Science can\'t explain your charm. Basketball can\'t contain your energy. And my heart? It never stood a chance. You\'re not just my MVP — you\'re the entire All-Star team, the halftime show, and the confetti at the end. \n\nAlright now the AI is done talking:  You have such a unique way of finding a key to my heart, and to bring peacefulness and warmth ;) into my life, especially in times when I need it the most. There\'s never a boring moment with you and time flies when we\'re together. I know I haven\'t been the most present cuz interview prep, but hope this will pass soon, and I always look forward to spending more quality time with you~ Here\'s to more to come in our future :) 💕'
+  },
+  zh: {
+    code: 'LOVE',
+    name: '心动制造机',
+    tagline: '偷走了我的心——还不打算还。',
+    desc: '你一走上球场，其他人就都不重要了。你的笑容是全场紧逼，没有任何防守能挡住。你的笑声比任何蜂鸣器都响亮。你不只是在打球——你就是球赛本身。你走进的每个房间都会变亮。你讲的每个笑话都完美命中。你有一种荒谬的能力，能让最糟糕的一天都像赢了总冠军一样开心。科学解释不了你的魅力，篮球装不下你的能量。而我的心？从来没有机会逃脱。你不只是我的MVP——你是整支全明星队、中场表演、和最后的彩带雨。\n\nAI 还是太油了，让我写两句吧： 我很喜欢你用你独特的方式，在我最需要的时候给我的生活带来了平静和温暖 ；）和你在一起的时候时间总是过得飞快。虽然我最近因为面试没有足够的时间去陪你，但希望这会尽快过去，期待我们将来会有很多很多的quality time~ 💕'
+  }
+};
+
 // Fallback type when no pattern matches well
 export const FALLBACK_TYPE = {
   en: { code: 'WILD', name: 'The Unclassifiable', tagline: 'The system gave up.', desc: 'Congratulations — you broke the BBTI algorithm. Your basketball personality is so unique, so contradictory, so beautifully chaotic that no existing category can contain you. You\'re a walking paradox on the court. A ball-hogging facilitator. A lazy hustler. A confident mess. The basketball gods looked at you and said, "We don\'t have a box for that." Wear it as a badge of honor.' },
