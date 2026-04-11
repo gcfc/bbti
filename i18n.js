@@ -36,6 +36,10 @@ export const STRINGS = {
     fallback_kicker: 'System Override',
     fallback_sub: 'The personality database short-circuited trying to classify you.',
     lang_toggle: '中文',
+    surprise_kicker: 'Special Result Just For You',
+    surprise_see_real: 'see real result →',
+    surprise_note: 'This message was placed here by someone who thinks you\'re pretty amazing.',
+    meta_title: 'BBTI — Basketball Behavioral Type Indicator',
   },
   zh: {
     site_title: 'BBTI 篮球人格测试',
@@ -70,6 +74,10 @@ export const STRINGS = {
     fallback_kicker: '系统强制兜底',
     fallback_sub: '人格数据库在分析你的时候宕机了。',
     lang_toggle: 'EN',
+    surprise_kicker: '专属于你的特别结果',
+    surprise_see_real: '查看真实结果 →',
+    surprise_note: '这条消息是一个觉得你超级棒的人偷偷放在这里的。',
+    meta_title: 'BBTI 篮球人格测试 — 你是哪种篮球人？',
   }
 };
 

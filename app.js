@@ -86,7 +86,7 @@ function applyStaticText() {
   submitBtn.textContent            = t('submit_btn');
   restartBtn.textContent           = t('restart_btn');
   toTopBtn.textContent             = t('home_btn');
-  document.title = t('site_title') + ' — Basketball Behavioral Type Indicator';
+  document.title = t('meta_title');
 }
 
 // ============================================================
@@ -326,4 +326,8 @@ toTopBtn.addEventListener('click', () => showScreen('intro'));
 //  Init
 // ============================================================
 
+const urlLang = new URLSearchParams(window.location.search).get('lang');
+if (urlLang === 'zh' || urlLang === 'en') {
+  state.lang = urlLang;
+}
 setLang(state.lang);
